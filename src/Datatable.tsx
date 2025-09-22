@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-interface DataTableProps<T> {
-  data: T[];
-  columns: Column<T>[];
-  loading?: boolean;
-  selectable?: boolean;
-  onRowSelect?: (selectedRows: T[]) => void;
-}
 
 interface Column<T> {
   key: string;
@@ -33,7 +26,6 @@ const Datatable = ({ Api }: DatatableProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedRows, setSelectedRows] = useState<Item[]>([]);
 
-  console.log(data);
 
   useEffect(() => {
     const fetch = async () => {
